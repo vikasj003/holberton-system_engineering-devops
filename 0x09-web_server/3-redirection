@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#redirect to another page
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo sed -i "redirect code goes here"
+sudo service nginx restart
+sudo service nginx reload
