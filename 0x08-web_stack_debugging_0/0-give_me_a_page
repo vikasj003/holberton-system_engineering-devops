@@ -1,2 +1,2 @@
 #you will need to get Apache to run on the container
-sudo service apache2 start
+service apache2 start
