@@ -3,5 +3,5 @@
 pkill -f apache2
 apt-get update
 apt-get install ngnix
-sudo sed -i 's/8080/80/' /etc/nginx/sites-enable/default
+sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
 service nginx start'
