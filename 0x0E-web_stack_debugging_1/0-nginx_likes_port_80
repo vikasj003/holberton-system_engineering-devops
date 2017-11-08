@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 #Nginx must be running, and listening on port 80
 pkill -f apache2
-apt-get update
-apt-get install ngnix
 sudo sed -i 's/8080/80/' /etc/nginx/sites-enabled/default
-service nginx start'
+sudo service nginx start'
