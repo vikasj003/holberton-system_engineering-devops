@@ -1,5 +1,4 @@
 #Using Puppet, create a file in /tmp
-
 file { '/tmp/holberton':
   ensure => file,
   path => '/tmp/holberton',
@@ -8,4 +7,3 @@ file { '/tmp/holberton':
   group => 'www-data',
   content => 'I love Puppet'
 }
-
