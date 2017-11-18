@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#current directory
+for [ i = 0; i -lt pwd
