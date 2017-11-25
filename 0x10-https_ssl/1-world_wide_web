@@ -2,8 +2,8 @@
 
 domain_func() {
 
-    record=$(dig "$i.$1" | awk '/ANSWER SECTION:/ | {getline; print $4}')
-    ip=$(dig "$i.$1" | awk '/ANSWER SECTION:/ | {getline; print $5}')
+    record=$(dig "$i.$1" | awk '/ANSWER SECTION:/ {getline; print $4}')
+    ip=$(dig "$i.$1" | awk '/ANSWER SECTION:/ {getline; print $5}')
 }
 
 
