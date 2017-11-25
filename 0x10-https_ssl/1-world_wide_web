@@ -2,10 +2,8 @@
 
 domain_func() {
 
-    record=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk '{printf "%s", $4}')
-    ip=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk '{printf "%s", $5}')
-    printf "The subdomain %s is a %s record and points to %s\n" "$2" "$record" "$ip" 
-
+    record=$(dig "$2.$1" | awk '/ANSWER SECTION:/' | '{getline; print $4}')
+    ip=$(dig "$2.$1" | awk '/ANSWER SECTION:/' | '{getline; print $5}')
 }
 
 
@@ -13,8 +11,11 @@ domain_func() {
 if [ -z "$2" ]; then
     for sub in "www" "lb-01" "web-01" "web-02"
     do
-	domain_func "$1" "$sub"
+        domain_func $1
+	echo " The subdomain $sub is a $record record and point to $ip"
     done
 else
-    domain_func "$1" "$2"
+    sub=$2
+    domain_func "$1"
+    echo "The subdomain $2 is a $record record and points to $is"
 fi
