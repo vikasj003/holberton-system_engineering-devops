@@ -12,10 +12,10 @@ if [ -z "$2" ]; then
     for i in "www" "lb-01" "web-01" "web-02"
     do
         domain_func $1
-	echo " The subdomain $sub is a $record record and point to $ip"
+	echo " The subdomain $2 is a $record record and point to $ip"
     done
 else
     i=$2
     domain_func "$1"
-    echo "The subdomain $2 is a $record record and points to $is"
+    echo "The subdomain $2 is a $record record and points to $ip"
 fi
