@@ -8,12 +8,12 @@ domain_func() {
     printf "The subdomain %s is a %s record and points to %s\n" "$2" "$record" "$ip"
 }
 
-    if [-z "$2"]; then
-        for sub in "www" "lb-01" "web-01" "web-02"
-        do
-            domain_func "$1" "$sub"
-        done
-    else
-        print_domains "$1" "$2"
-    fi
+  if [ -z "$2"]; then
+     for sub in "www" "lb-01" "web-01" "web-02"
+     do
+         domain_func "$1" "$sub"
+     done
+  else
+         print_domains "$1" "$2"
+  fi
 
