@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-'''Configure your domain zone so that the subdomain'''
+#Configure your domain zone so that the subdomain
 domain_func() {
 
     record=$(dig "$2.$1" | awk '/ANSWER SECTION:/ {getline; print $4}')
