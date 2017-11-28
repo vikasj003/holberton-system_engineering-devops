@@ -1,0 +1,51 @@
+global
+    log 127.0.0.1 local0 notice
+    maxconn 2048
+    tune.ssl.default-dh-param 2048
+    user haproxy
+    group haproxy
+
+defaults
+    option forwardfor
+    option http-server-close
+    log     global
+    mode    http
+    option  httplog
+    option  dontlognull
+    retries 3
+    option redispatch
+    timeout connect  5000
+    timeout client  10000
+    timeout server  10000
+
+# listen appname 
+#	bind 0.0.0.0:80 
+#	mode http 
+#	stats enable 
+#	stats uri /haproxy?stats 
+#	balance roundrobin 
+#	option httpclose 
+#	option forwardfor 
+#	server 118-web-01 142.44.167.33:80 check 
+#	server 118-web-02 144.217.246.254:80 check
+
+frontend www-http
+   bind 144.217.246.194:80
+   reqadd X-Forwarded-Proto:\ http
+   default_backend www-backend
+
+frontend www-https
+   bind 144.217.246.194:443 ssl crt /etc/haproxy/certs/www.wendysegura.online.pem
+   reqadd X-Forwarded-Proto:\ https
+   acl letsencrypt-acl path_beg /.well-known/acme-challenge/
+   use_backend letsencrypt-backend if letsencrypt-acl
+   default_backend www-backend
+
+
+backend www-backend
+   redirect scheme https if !{ ssl_fc }
+   server 118-web-01 142.44.167.33:80 check
+   server 118-web-02 144.217.246.254:80 check
+
+backend letsencrypt-backend
+   server letsencrypt 127.0.0.1:54321
