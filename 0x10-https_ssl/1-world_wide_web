@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+'''Configure your domain zone so that the subdomain'''
+
 
 domain_func() {
 
