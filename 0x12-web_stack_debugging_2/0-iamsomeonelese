@@ -1,4 +1,4 @@
 #!/bin/bash
 #whoami command
 
-sudo -u "$1" "whoami"
+sudo -l -U "$1" "whoami"
