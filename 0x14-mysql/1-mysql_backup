@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 #The MySQL dump must contain all your MySQL databases
 PASWRD="$1"
+database= 'mysql -u -p$PASWRD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database`
 NOW=$(date +"%d-%m-%Y")
-mysqldump -u root "-p$PASWRD" --opt --all-databases > backup.sql
-tar -czvf "$NOW.tar.gz" backup.sql
+
+for db in $databases; do
+    mysqldump -u root -p$PASWRD --opt --all-databases > backup.sql
+    tar -czvf "$NOW.tar.gz" backup.sql
+done
