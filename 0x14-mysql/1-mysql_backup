@@ -5,6 +5,6 @@ database=mysql -u -p$PASWRD -e "SHOW DATABASES;" | tr -d "| " | grep -v Database
 NOW=$(date +"%d-%m-%Y")
 
 for db in $databases; do
-    mysqldump -u root -p$PASWRD --opt --all-databases > backup.sql
+    mysqldump -u root "-p$PASWRD" --opt --all-databases > backup.sql
     tar -czvf "$NOW.tar.gz" backup.sql
 done
