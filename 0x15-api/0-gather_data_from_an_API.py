@@ -10,7 +10,7 @@ if __name__ == "__main__":
     url_user = 'https://jsonplaceholder.typicode.com/users/'
 
     taks_id = {'userId': argv[1]}
-    url_todos = 'https://jsonplaceholder.typicode.com/todos?'
+    url_todos = 'https://jsonplaceholder.typicode.com/todos?userId='
 
     #employee data request
     employee_req = requests.get(url_user + employee_id)
