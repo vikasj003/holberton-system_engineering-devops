@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 """Write a Python script that, using this REST API"""
-import sys
 import json
 import requests
+import sys
 
 
 if __name__ == "__main__":
