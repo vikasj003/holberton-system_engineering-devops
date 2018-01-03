@@ -6,11 +6,11 @@ import requests
 
 
 if __name__ == "__main__":
-    employee_id = sys.argv[1]
     url_user = 'https://jsonplaceholder.typicode.com/users/'
+    employee_id = sys.argv[1]
 
-    task_id = sys.argv[1]
     url_todos = 'https://jsonplaceholder.typicode.com/todos?userId='
+    task_id = sys.argv[1]
 
     employee_req = requests.get(url_user + employee_id)
     employee = employee_req.json()
