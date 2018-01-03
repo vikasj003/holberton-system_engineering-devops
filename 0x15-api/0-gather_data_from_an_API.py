@@ -18,6 +18,8 @@ if __name__ == "__main__":
     list_tasks = []
     todos_req = requests.get(url_todos + task_id)
     todos = todos_req.json()
+    for item in todos:
+        name = item['name']
 
     for item in todos:
         if item.get('completed') is True:
