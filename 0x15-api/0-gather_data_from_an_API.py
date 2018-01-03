@@ -12,17 +12,13 @@ if __name__ == "__main__":
     task_id = sys.argv[1]
     url_todos = 'https://jsonplaceholder.typicode.com/todos?userId='
 
-    #employee data request
     employee_req = requests.get(url_user + employee_id)
     employee = employee_req.json()
 
-    #task todo request
     list_tasks = []
-    
     todos_req = requests.get(url_todos + task_id)
     todos = todos_req.json()
 
-    #grab each task and add to list
     for item in todos:
         if item.get('completed') is True:
             list_tasks.append(item.get('title'))
@@ -34,6 +30,3 @@ if __name__ == "__main__":
           (employee.get('name'), number_tasks, total_tasks))
     for item in list_tasks:
         print("\t" + item)
-
-
-    
