@@ -14,7 +14,6 @@ def number_of_subscribers(subreddit):
     request = requests.get(url, headers=headers)
     if not request:
         return (0)
-    
     data = request.json().get("data").get("subscribers")
     """If not a valid subreddit, return 0"""
     if data is None:
