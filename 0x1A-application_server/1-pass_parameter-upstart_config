@@ -1,0 +1,12 @@
+description "Gunicorn application server running web_flask/6-number_odd_or_even.py"
+
+start on runlevel [2345]
+stop on runlevel [!2345]
+
+respawn
+setuid ubuntu
+setgid www-data
+
+#env PATH=/home/ubuntu/web_flask/6-number_odd_or_even.py
+chdir /home/ubuntu/AirBnB_clone_v2/web_flask
+exec gunicorn --bind 127.0.0.1:8001 6-number_odd_or_even:app --log-level debug
