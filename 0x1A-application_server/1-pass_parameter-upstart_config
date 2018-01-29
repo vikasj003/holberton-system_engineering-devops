@@ -9,5 +9,5 @@ setuid ubuntu
 setgid www-data
 
 #env PATH=/home/ubuntu/
-chdir /home/ubuntu/AirBnB_clone_v4/web_flask
-exec gunicorn --workers --bind 127.0.0.1:8001 6-number_odd_or_even:app --log-level debug
+chdir /home/ubuntu/AirBnB_clone_v2/web_flask
+exec gunicorn --workers --bind 127.0.0.1:8001 6-number_odd_or_even:app
