@@ -8,6 +8,6 @@ respawn
 setuid ubuntu
 setgid www-data
 
-#env PATH=/home/ubuntu/web_flask/6-number_odd_or_even.py
-chdir /home/ubuntu/AirBnB_clone_v2
-exec gunicorn --bind 127.0.0.1:8001 web_flask.6-number_odd_or_even:app --log-level debug
+#env PATH=/home/ubuntu/
+chdir /home/ubuntu/AirBnB_clone_v4/web_flask
+exec gunicorn --workers --bind 127.0.0.1:8001 6-number_odd_or_even:app --log-level debug
