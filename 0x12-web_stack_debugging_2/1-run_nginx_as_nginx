@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # debug run nginx as nginx
 pkill apache2
-sudo chmod ugo+wr /etc/nginx/nginx.conf
+sudo sed -i 's/#user www-data/user nginx/' /etc/nginx/nginx.conf
 sudo sed -i "s/80/8080/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
